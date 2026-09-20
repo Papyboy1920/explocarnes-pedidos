@@ -12,7 +12,7 @@
 // CATALOG_VERSION: subir para re-sembrar en el servidor.
 // ============================================================
 
-const CATALOG_VERSION = 1;
+const CATALOG_VERSION = 2;
 
 const SUGERIDO = { pending: true, note: "Precio sugerido — el dueño confirma" };
 
@@ -33,8 +33,8 @@ const SEED_CATALOG = {
               desc: "La mezcla perfecta: res, cerdo y pollo con chorizos para la parrilla. Para 5–6 personas. Delivery GRATIS." },
             { id: "combo-familiar", name: "Combo Parrillero Familiar", price: 79.99, unit: "combo", active: true, image: "combo-familiar.jpg", ...SUGERIDO,
               desc: "Todo para el asado del fin de semana en familia. Para 4–5 personas. Delivery GRATIS." },
-            { id: "combo-dominicano", name: "Combo Asado Dominicano", price: 89.99, unit: "combo", active: true, ...SUGERIDO,
-              desc: "Para los de la tierra: longaniza, costillas de cerdo, pollo y chorizos con el sazón de casa. Delivery GRATIS." }
+            { id: "combo-argentino", name: "Combo Parrillero Argentino", price: 89.99, unit: "combo", active: true, ...SUGERIDO,
+              desc: "El asado argentino en tu casa: chorizo argentino, longaniza argentina, costillas de res y pollo a la parrilla. Delivery GRATIS." }
           ]
         }
       ]
@@ -54,6 +54,8 @@ const SEED_CATALOG = {
               desc: "El corte de la casa para la parrilla — jugoso y lleno de sabor." },
             { id: "ribeye", name: "Ribeye", price: 16.99, unit: "lb", active: true, ...SUGERIDO,
               desc: "Marmoleo de primera para los que saben de carne." },
+            { id: "fraldinha", name: "Fraldinha — Corte Brasilero", price: 12.99, unit: "lb", active: true, ...SUGERIDO,
+              desc: "El corte brasilero de la parrilla — jugoso, para un churrasco de verdad." },
             { id: "costilla-res", name: "Costillas de Res", price: 11.99, unit: "lb", active: true, ...SUGERIDO,
               desc: "Para cocinar lento o tirar a la parrilla — pura manteca de sabor." }
           ]
@@ -90,10 +92,12 @@ const SEED_CATALOG = {
           id: "emb-todos",
           name: "Para la parrilla",
           items: [
-            { id: "chorizos", name: "Chorizos (paquete de 4)", price: 9.99, unit: "paquete", active: true, image: "embutidos.jpg", ...SUGERIDO,
-              desc: "Chorizos parrilleros — los que no pueden faltar en el asado." },
-            { id: "longaniza", name: "Longaniza Dominicana (paquete)", price: 8.99, unit: "paquete", active: true, ...SUGERIDO,
+            { id: "chorizos", name: "Chorizo Argentino (paquete de 4)", price: 9.99, unit: "paquete", active: true, image: "embutidos.jpg", ...SUGERIDO,
+              desc: "El infaltable del asado argentino — para la parrilla." },
+            { id: "longaniza-dom", name: "Longaniza Dominicana (paquete)", price: 8.99, unit: "paquete", active: true, ...SUGERIDO,
               desc: "La longaniza de la tierra, con su picantico de casa." },
+            { id: "longaniza-arg", name: "Longaniza Argentina (paquete)", price: 9.99, unit: "paquete", active: true, ...SUGERIDO,
+              desc: "Estilo argentino — suave, jugosa, hecha para la parrilla." },
             { id: "salchicha-parrillera", name: "Salchichas Parrilleras", price: 7.99, unit: "paquete", active: true, ...SUGERIDO,
               desc: "Para los muchachos y para picar mientras se asa lo demás." }
           ]
@@ -129,9 +133,7 @@ const SEED_CATALOG = {
             { id: "carbon", name: "Carbón (bolsa grande)", price: 12.99, unit: "bolsa", active: true, ...SUGERIDO,
               desc: "Bolsa grande de carbón — porque sin fuego no hay parrilla." },
             { id: "yuca", name: "Yuca (5 lb)", price: 6.99, unit: "bolsa", active: true, ...SUGERIDO,
-              desc: "Yuca fresca para acompañar el asado." },
-            { id: "platanos", name: "Plátanos (mano)", price: 4.99, unit: "mano", active: true, ...SUGERIDO,
-              desc: "Para los tostones y maduros del BBQ." }
+              desc: "Yuca fresca para acompañar el asado." }
           ]
         }
       ]
