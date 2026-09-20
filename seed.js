@@ -10,14 +10,41 @@
 // NINGÚN precio fue publicado por el negocio — TODOS los precios
 // llevan pending:true ("Precio sugerido — el dueño confirma").
 // CATALOG_VERSION: subir para re-sembrar en el servidor.
+// v2 (20-sep): menú argentinizado — Combo Parrillero Argentino,
+//   longanizas dominicana+argentina, chorizo argentino, fraldinha
+//   (corte brasilero); fuera plátanos.
+// v3 (20-sep): fuera yuca (él vende carnes); extras → Accesorios de
+//   Parrilla (carbón lump premium, astillas, fósforos, cuchillos);
+//   nuevo departamento "Los Favoritos de Explotado".
 // ============================================================
 
-const CATALOG_VERSION = 2;
+const CATALOG_VERSION = 3;
 
 const SUGERIDO = { pending: true, note: "Precio sugerido — el dueño confirma" };
 
 const SEED_CATALOG = {
   departments: [
+    {
+      id: "favoritos-explotado",
+      name: "Los Favoritos de Explotado",
+      icon: "⭐",
+      categories: [
+        {
+          id: "fav-todos",
+          name: "Los que él recomienda",
+          items: [
+            { id: "combo-mejor", name: "El Mejor Combo de Explocarnes", price: 129.99, unit: "combo", active: true, tag: "⭐ El favorito", image: "combo-insignia.jpg", ...SUGERIDO,
+              desc: "El que todos piden: picaña, churrasco, costillas de cerdo, pollo, chorizos y longaniza. Para 8–10 personas. Delivery GRATIS." },
+            { id: "combo-hibrido", name: "Combo Híbrido", price: 99.99, unit: "combo", active: true, tag: "🔥 El más pedido", image: "combo-hibrido.jpg", ...SUGERIDO,
+              desc: "La mezcla perfecta: res, cerdo y pollo con chorizos para la parrilla. Para 5–6 personas. Delivery GRATIS." },
+            { id: "picana", name: "Picaña", price: 14.99, unit: "lb", active: true, tag: "👑 La reina", image: "cortes-premium.jpg", ...SUGERIDO,
+              desc: "Con su capa de grasa, como manda la parrilla brasileña. Fresca del día." },
+            { id: "chorizos", name: "Chorizo Argentino (paquete de 4)", price: 9.99, unit: "paquete", active: true, image: "embutidos.jpg", ...SUGERIDO,
+              desc: "El infaltable del asado argentino — para la parrilla." }
+          ]
+        }
+      ]
+    },
     {
       id: "combos-bbq",
       name: "Combos BBQ",
@@ -123,17 +150,21 @@ const SEED_CATALOG = {
     },
     {
       id: "extras",
-      name: "Extras para el BBQ",
+      name: "Accesorios de Parrilla",
       icon: "🔥",
       categories: [
         {
           id: "ext-todos",
-          name: "No te falte nada",
+          name: "Que no te falte nada",
           items: [
-            { id: "carbon", name: "Carbón (bolsa grande)", price: 12.99, unit: "bolsa", active: true, ...SUGERIDO,
-              desc: "Bolsa grande de carbón — porque sin fuego no hay parrilla." },
-            { id: "yuca", name: "Yuca (5 lb)", price: 6.99, unit: "bolsa", active: true, ...SUGERIDO,
-              desc: "Yuca fresca para acompañar el asado." }
+            { id: "carbon", name: "Carbón Lump Premium (bolsa grande)", price: 14.99, unit: "bolsa", active: true, ...SUGERIDO,
+              desc: "El bueno — lump charcoal premium tipo Wild Fork. Enciende rápido, quema limpio y caliente." },
+            { id: "wood-chips", name: "Astillas de Madera para Ahumar", price: 8.99, unit: "bolsa", active: true, ...SUGERIDO,
+              desc: "Para darle humo a la carne — el toque del pitmaster." },
+            { id: "fosforos", name: "Fósforos Largos", price: 3.99, unit: "caja", active: true, ...SUGERIDO,
+              desc: "Enciende el carbón sin quemarte los dedos." },
+            { id: "knife-set", name: "Set de Cuchillos Parrilleros", price: 39.99, unit: "set", active: true, ...SUGERIDO,
+              desc: "Trinche y cuchillo del asador — para cortar como un profesional." }
           ]
         }
       ]
