@@ -1,0 +1,19 @@
+{
+  "author": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.13.1"
+  },
+  "description": "Sistema de pedidos para Explocarnes — carnicería móvil con delivery gratis en todo Miami",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "server.js",
+  "name": "explocarnes-pedidos",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "1.0.0"
+}
