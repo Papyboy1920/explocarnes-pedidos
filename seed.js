@@ -18,7 +18,7 @@
 //   nuevo departamento "Los Favoritos de Explotado".
 // ============================================================
 
-const CATALOG_VERSION = 3;
+const CATALOG_VERSION = 4;
 
 const SUGERIDO = { pending: true, note: "Precio sugerido — el dueño confirma" };
 
@@ -164,7 +164,9 @@ const SEED_CATALOG = {
             { id: "fosforos", name: "Fósforos Largos", price: 3.99, unit: "caja", active: true, ...SUGERIDO,
               desc: "Enciende el carbón sin quemarte los dedos." },
             { id: "knife-set", name: "Set de Cuchillos Parrilleros", price: 39.99, unit: "set", active: true, ...SUGERIDO,
-              desc: "Trinche y cuchillo del asador — para cortar como un profesional." }
+              desc: "Trinche y cuchillo del asador — para cortar como un profesional." },
+            { id: "delantal", name: "Delantal de Parrillero Explotado", price: 24.99, unit: "delantal", active: true, tag: "🔥 Con su logo", ...SUGERIDO,
+              desc: "Delantal con el logo de Explotado — para el asador de la casa. Compra tu carne y llévate el delantal." }
           ]
         }
       ]
