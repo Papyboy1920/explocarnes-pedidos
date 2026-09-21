@@ -15,7 +15,7 @@
 //   (corte brasilero); fuera plátanos.
 // v3 (20-sep): fuera yuca (él vende carnes); extras → Accesorios de
 //   Parrilla (carbón lump premium, astillas, fósforos, cuchillos);
-//   nuevo departamento "Los Favoritos de Explotado".
+//   departamento "Recomendaciones del Explotado".
 // v4 (20-sep): Delantal de Parrillero Explotado en Accesorios.
 // v5 (20-sep): Combo Especial REAL ($139.99, precio del flyer del negocio,
 //   con su imagen) reemplaza el inventado; +2 combos rotativos sugeridos.
@@ -24,7 +24,7 @@
 //   2 cowboy, pack chorizo argentino) + Combo Parrilla Clásica sugerido $129.
 // ============================================================
 
-const CATALOG_VERSION = 6;
+const CATALOG_VERSION = 7;
 
 const SUGERIDO = { pending: true, note: "Precio sugerido — el dueño confirma" };
 
@@ -32,15 +32,15 @@ const SEED_CATALOG = {
   departments: [
     {
       id: "favoritos-explotado",
-      name: "Los Favoritos de Explotado",
+      name: "Recomendaciones del Explotado",
       icon: "⭐",
       categories: [
         {
           id: "fav-todos",
-          name: "Los que él recomienda",
+          name: "Todo",
           items: [
-            { id: "combo-explocarnes", name: "Combo Explocarnes", price: 149.99, unit: "combo", active: true, tag: "🆕 Recién posteado", image: "combo-explocarnes.jpg",
-              desc: "LO ACABA DE POSTEAR: 1 Tomahawk (~5 lb), 1 tira de churrasco entera (~3 lb), 1 picanha entera, 2 New York strips, 2 Cowboy steaks y 1 pack de chorizo argentino. Delivery INCLUIDO en todo Miami. Esperamos tu pedido 👏" },
+            { id: "combo-explocarnes", name: "Combo Explocarnes", price: 149.99, unit: "combo", active: true, image: "combo-explocarnes.jpg",
+              desc: "1 Tomahawk (~5 lb), 1 tira de churrasco entera (~3 lb), 1 picanha entera, 2 New York strips, 2 Cowboy steaks y 1 pack de chorizo argentino. Delivery INCLUIDO en todo Miami. Esperamos tu pedido 👊" },
             { id: "combo-especial", name: "Combo Especial", price: 139.99, unit: "combo", active: true, tag: "⭐ El de la casa", image: "combo-especial.jpg",
               desc: "TODO POR SOLO $139.99 — 1 tira de churrasco, 3 New York, 3 ribeye, 1 tira de asado, 1 chorizo argentino, 1 queso blanco y 1 pomo de pimienta negra. Delivery INCLUIDO. Calidad que se siente, sabor que se comparte." },
             { id: "combo-hibrido", name: "Combo Híbrido", price: 99.99, unit: "combo", active: true, tag: "🔥 El más pedido", image: "combo-hibrido.jpg", ...SUGERIDO,
@@ -62,8 +62,8 @@ const SEED_CATALOG = {
           id: "combos-todos",
           name: "Para la parrilla",
           items: [
-            { id: "combo-explocarnes", name: "Combo Explocarnes", price: 149.99, unit: "combo", active: true, tag: "🆕 Recién posteado", image: "combo-explocarnes.jpg",
-              desc: "LO ACABA DE POSTEAR: 1 Tomahawk (~5 lb), 1 tira de churrasco entera (~3 lb), 1 picanha entera, 2 New York strips, 2 Cowboy steaks y 1 pack de chorizo argentino. Delivery INCLUIDO en todo Miami. Esperamos tu pedido 👏" },
+            { id: "combo-explocarnes", name: "Combo Explocarnes", price: 149.99, unit: "combo", active: true, image: "combo-explocarnes.jpg",
+              desc: "1 Tomahawk (~5 lb), 1 tira de churrasco entera (~3 lb), 1 picanha entera, 2 New York strips, 2 Cowboy steaks y 1 pack de chorizo argentino. Delivery INCLUIDO en todo Miami. Esperamos tu pedido 👊" },
             { id: "combo-especial", name: "Combo Especial", price: 139.99, unit: "combo", active: true, tag: "⭐ El de la casa", image: "combo-especial.jpg",
               desc: "TODO POR SOLO $139.99 — 1 tira de churrasco, 3 New York, 3 ribeye, 1 tira de asado, 1 chorizo argentino, 1 queso blanco y 1 pomo de pimienta negra. Delivery INCLUIDO. Calidad que se siente, sabor que se comparte." },
             { id: "combo-parrilla-clasica", name: "Combo Parrilla Clásica", price: 129, unit: "combo", active: true, tag: "💡 Sugerido", image: "combo-parrilla-clasica.jpg", ...SUGERIDO,

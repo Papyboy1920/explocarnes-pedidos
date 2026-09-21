@@ -47,6 +47,29 @@ const PG_SCHEMA = `
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
   );`;
 
+// ---------- Correcciones de copy (Sept 2026) ----------
+// Aplica los cambios de texto que el dueño/pitch exige sobre el catálogo
+// vivo, porque mergeCatalog() nunca sobrescribe campos no vacíos.
+// Solo toca estos IDs exactos; el resto del catálogo queda intacto.
+function applyCorrections(catalog) {
+  if (!catalog || !Array.isArray(catalog.departments)) return;
+  const FIXED_DESC = "1 Tomahawk (~5 lb), 1 tira de churrasco entera (~3 lb), 1 picanha entera, 2 New York strips, 2 Cowboy steaks y 1 pack de chorizo argentino. Delivery INCLUIDO en todo Miami. Esperamos tu pedido 👊";
+  for (const d of catalog.departments) {
+    if (d && d.id === "favoritos-explotado") {
+      d.name = "Recomendaciones del Explotado";
+      for (const c of d.categories || []) {
+        if (c && c.id === "fav-todos") c.name = "Todo";
+        for (const it of (c && c.items) || []) {
+          if (it && it.id === "combo-explocarnes") {
+            it.tag = "";
+            it.desc = FIXED_DESC;
+          }
+        }
+      }
+    }
+  }
+}
+
 // ---------- Fusión de catálogo (nunca destructiva) ----------
 // Fusiona la semilla con el catálogo vivo SIN borrar ni sobrescribir
 // lo que el dueño editó en /tienda:
@@ -130,6 +153,7 @@ async function init() {
       let live = null;
       try { live = JSON.parse(await kvGet("catalog")); } catch { live = null; }
       const m = mergeCatalog(live, SEED_CATALOG);
+      applyCorrections(m.catalog);
       await kvSet("catalog", JSON.stringify(m.catalog));
       await kvSet("catalog_version", String(CATALOG_VERSION));
       console.log(`[explocarnes] Catálogo fusionado (v${v} → v${CATALOG_VERSION}): +${m.added} nuevos, ${m.filled} campos rellenados. Lo del dueño intacto.`);
