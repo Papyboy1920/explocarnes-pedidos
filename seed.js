@@ -7,8 +7,8 @@
 //     "El mejor combo de Explocarnes", "combo para BBQ".
 //   - Horario publicado: Miércoles a Domingo.
 //   - Posicionamiento: "los mejores precios", delivery incluido.
-// NINGÚN precio fue publicado por el negocio — TODOS los precios
-// llevan pending:true ("Precio sugerido — el dueño confirma").
+// Precio REAL del negocio: Combo Especial $139.99 (de su flyer).
+// Todo lo demás lleva pending:true ("Precio sugerido — el dueño confirma").
 // CATALOG_VERSION: subir para re-sembrar en el servidor.
 // v2 (20-sep): menú argentinizado — Combo Parrillero Argentino,
 //   longanizas dominicana+argentina, chorizo argentino, fraldinha
@@ -16,9 +16,12 @@
 // v3 (20-sep): fuera yuca (él vende carnes); extras → Accesorios de
 //   Parrilla (carbón lump premium, astillas, fósforos, cuchillos);
 //   nuevo departamento "Los Favoritos de Explotado".
+// v4 (20-sep): Delantal de Parrillero Explotado en Accesorios.
+// v5 (20-sep): Combo Especial REAL ($139.99, precio del flyer del negocio,
+//   con su imagen) reemplaza el inventado; +2 combos rotativos sugeridos.
 // ============================================================
 
-const CATALOG_VERSION = 4;
+const CATALOG_VERSION = 5;
 
 const SUGERIDO = { pending: true, note: "Precio sugerido — el dueño confirma" };
 
@@ -33,8 +36,8 @@ const SEED_CATALOG = {
           id: "fav-todos",
           name: "Los que él recomienda",
           items: [
-            { id: "combo-mejor", name: "El Mejor Combo de Explocarnes", price: 129.99, unit: "combo", active: true, tag: "⭐ El favorito", image: "combo-insignia.jpg", ...SUGERIDO,
-              desc: "El que todos piden: picaña, churrasco, costillas de cerdo, pollo, chorizos y longaniza. Para 8–10 personas. Delivery GRATIS." },
+            { id: "combo-especial", name: "Combo Especial", price: 139.99, unit: "combo", active: true, tag: "⭐ El de la casa", image: "combo-especial.jpg",
+              desc: "TODO POR SOLO $139.99 — 1 tira de churrasco, 3 New York, 3 ribeye, 1 tira de asado, 1 chorizo argentino, 1 queso blanco y 1 pomo de pimienta negra. Delivery INCLUIDO. Calidad que se siente, sabor que se comparte." },
             { id: "combo-hibrido", name: "Combo Híbrido", price: 99.99, unit: "combo", active: true, tag: "🔥 El más pedido", image: "combo-hibrido.jpg", ...SUGERIDO,
               desc: "La mezcla perfecta: res, cerdo y pollo con chorizos para la parrilla. Para 5–6 personas. Delivery GRATIS." },
             { id: "picana", name: "Picaña", price: 14.99, unit: "lb", active: true, tag: "👑 La reina", image: "cortes-premium.jpg", ...SUGERIDO,
@@ -54,12 +57,16 @@ const SEED_CATALOG = {
           id: "combos-todos",
           name: "Para la parrilla",
           items: [
-            { id: "combo-mejor", name: "El Mejor Combo de Explocarnes", price: 129.99, unit: "combo", active: true, tag: "⭐ El favorito", image: "combo-insignia.jpg", ...SUGERIDO,
-              desc: "El que todos piden: picaña, churrasco, costillas de cerdo, pollo, chorizos y longaniza. Para 8–10 personas. Delivery GRATIS." },
+            { id: "combo-especial", name: "Combo Especial", price: 139.99, unit: "combo", active: true, tag: "⭐ El de la casa", image: "combo-especial.jpg",
+              desc: "TODO POR SOLO $139.99 — 1 tira de churrasco, 3 New York, 3 ribeye, 1 tira de asado, 1 chorizo argentino, 1 queso blanco y 1 pomo de pimienta negra. Delivery INCLUIDO. Calidad que se siente, sabor que se comparte." },
             { id: "combo-hibrido", name: "Combo Híbrido", price: 99.99, unit: "combo", active: true, tag: "🔥 El más pedido", image: "combo-hibrido.jpg", ...SUGERIDO,
               desc: "La mezcla perfecta: res, cerdo y pollo con chorizos para la parrilla. Para 5–6 personas. Delivery GRATIS." },
             { id: "combo-familiar", name: "Combo Parrillero Familiar", price: 79.99, unit: "combo", active: true, image: "combo-familiar.jpg", ...SUGERIDO,
               desc: "Todo para el asado del fin de semana en familia. Para 4–5 personas. Delivery GRATIS." },
+            { id: "combo-parrilla-completa", name: "Combo Parrilla Completa", price: 119.99, unit: "combo", active: true, image: "combo-hibrido.jpg", ...SUGERIDO,
+              desc: "2 tiras de churrasco, 2 New York, 2 ribeye, chorizo argentino y longaniza. Para la parrilla grande del fin de semana. Delivery GRATIS." },
+            { id: "combo-asado-express", name: "Combo Asado Express", price: 69.99, unit: "combo", active: true, image: "combo-insignia.jpg", ...SUGERIDO,
+              desc: "1 tira de asado, 2 New York, chorizos argentinos y queso blanco. El asado rápido sin perder calidad. Delivery GRATIS." },
             { id: "combo-argentino", name: "Combo Parrillero Argentino", price: 89.99, unit: "combo", active: true, ...SUGERIDO,
               desc: "El asado argentino en tu casa: chorizo argentino, longaniza argentina, costillas de res y pollo a la parrilla. Delivery GRATIS." }
           ]
