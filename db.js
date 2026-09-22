@@ -282,6 +282,17 @@ async function deleteOrder(id) {
   }
 }
 
+// Limpieza total del historial desde /tienda (boton "Limpiar historial").
+async function deleteAllOrders() {
+  if (kind === "pg") {
+    await pool.query("DELETE FROM orders");
+    await pool.query("UPDATE kv SET value = '0' WHERE key = 'order_seq'");
+  } else {
+    sdb.prepare("DELETE FROM orders").run();
+    sdb.prepare("UPDATE kv SET value = '0' WHERE key = 'order_seq'").run();
+  }
+}
+
 module.exports = {
   init,
   dbKind,
@@ -294,5 +305,6 @@ module.exports = {
   listOrders,
   getOrder,
   updateOrderStatus,
-  deleteOrder
+  deleteOrder,
+  deleteAllOrders
 };
